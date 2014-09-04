@@ -1,5 +1,8 @@
 FinalProjectApp::Application.routes.draw do
 
+  resources :media
+
+
   devise_for :users
 
   root to: "home#index"

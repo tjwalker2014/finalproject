@@ -33,9 +33,10 @@ body {
 .flip-container {
   perspective: 1000px;
   margin: 0 auto;
-  /*height: 100vh;*/
-  width: 100vh;
+  height: 100vh;
+  width: 56vw;
   position: relative;
+  overflow: hidden;
 }
 
 .flip-cards {

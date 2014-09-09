@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 (function() {
 
-  var app = angular.module('hackathonAppApi', []);
+  var app = angular.module('finalAppApi', []);
 
   app.controller('appController' , ["$scope", "$http" ,function($scope, $http) {
         

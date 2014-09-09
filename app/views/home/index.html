@@ -1,1 +1,93 @@
-<h1>Hello</h1>
+<div class="flip-container">       
+  
+  <div class="holder">
+    <div class="flip-cards" id="video">
+      <div class="front-card" data-target="#video">Video</div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png"><iframe width="420" height="345" src="http://www.youtube.com/embed/NFgx5MY72Dk"></iframe>
+      </div>
+    </div>
+  </div>
+      
+  <div class="holder">
+    <div class="flip-cards" id="thought">
+      <div class="front-card" data-target="#thought">Thought</div>
+      <div class="reverse-card">Thought large<img class="close-icon" src="assets/close.png"></div>
+    </div>
+  </div>  
+
+  <div class="holder">
+    <div class="flip-cards" id="song">
+      <div class="front-card" data-target="#song">Song</div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png">
+        <span>Hottest new soundcloud track</span>
+        <span id="artist-name">Artist: </span>
+        <span id="track-name">Track Name: </span>
+        <button id="previous">previous</button>
+        <button id="next">next</button>
+        <div id="track"></div>
+      </div>
+    </div>
+  </div>  
+  
+  <div class="holder" id="jokediv">
+    <div class="flip-cards" id="joke">
+      <div class="front-card" data-target="#joke">Joke</div>
+      <div class="reverse-card">Joke large<img class="close-icon" src="assets/close.png"></div>
+    </div>
+  </div>
+
+  <div class="holder" id="centerdiv">
+    <div class="flip-cards" id="nine">
+      <div class="front-card" data-target="#nine"><span id="ninediv">9</span>SqRs</span></div>
+      <div class="reverse-card">User Info & Settings
+        <img class="close-icon" src="assets/close.png">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+          <br>
+          <%= link_to "Edit profile", edit_user_registration_path %>
+          <br>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <br>
+          <%= link_to "Login", user_session_path %>
+          <br>
+          <%#= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
+        <% end %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="holder" id="storydiv">
+    <div class="flip-cards" id="story">
+      <div class="front-card" data-target="#story">Story</div>
+      <div class="reverse-card">Story large<img class="close-icon" src="assets/close.png"></div>
+    </div>
+  </div>  
+
+  <div class="holder">
+    <div class="flip-cards" id="picture">
+      <div class="front-card" data-target="#picture">Picture</div>
+      <div class="reverse-card">Picture large<img class="close-icon" src="assets/close.png"></div>
+    </div>
+  </div>
+    
+  <div class="holder">
+    <div class="flip-cards" id="game">
+      <div class="front-card" data-target="#game">Game</div>
+      <div class="reverse-card">Game large<img class="close-icon" src="assets/close.png"></div>
+    </div>
+  </div>
+    
+  <div class="holder">
+    <div class="flip-cards" id="random">
+      <div class="front-card" data-target="#random">Random</div>
+      <div class="reverse-card">Random large<img class="close-icon" src="assets/close.png"></div>
+    </div>  
+  </div> 
+
+</div>
+

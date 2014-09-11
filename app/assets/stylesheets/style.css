@@ -90,7 +90,7 @@ p {
   line-height: 0;
 }
 
-img {
+.close-icon {
   width: 25px;
   position: absolute;
   right: 5px;
@@ -122,3 +122,23 @@ iframe {
 .avoid-clicks {
   pointer-events: none;
 }
+
+.content-div-styling {
+  position: absolute;
+  background: blue;
+  height: 90%;
+  width: 90%;
+  top: 5%;
+  left: -100% ;
+  z-index: 1000000;
+  opacity: 0;
+  font-size: 20px;
+  color: white;
+}
+
+.show-div {
+  left: 5% ;
+  transition: opacity 2s;
+  opacity: 1;
+}
+

@@ -2,7 +2,7 @@
   
   <div class="holder">
     <div class="flip-cards" id="video">
-      <div class="front-card" data-target="#video">Video</div>
+      <div class="front-card" data-rotate="#video" data-show="#video-content-div">Video</div>
       <div class="reverse-card"><img class="close-icon" src="assets/close.png"><iframe width="420" height="345" src="http://www.youtube.com/embed/NFgx5MY72Dk"></iframe>
       </div>
     </div>
@@ -10,84 +10,102 @@
       
   <div class="holder">
     <div class="flip-cards" id="thought">
-      <div class="front-card" data-target="#thought">Thought</div>
+      <div class="front-card" data-rotate="#thought" data-show="#thought-content-div">Thought</div>
       <div class="reverse-card">Thought large<img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>  
 
   <div class="holder">
-    <div class="flip-cards" id="song">
-      <div class="front-card" data-target="#song">Song</div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png">
-        <span>Hottest new soundcloud track</span>
-        <span id="artist-name">Artist: </span>
-        <span id="track-name">Track Name: </span>
-        <button id="previous">previous</button>
-        <button id="next">next</button>
-        <div id="track"></div>
-      </div>
+    <div class="flip-cards" id="song" ng-click="newSoundcloudTrack()">
+      <div class="front-card" data-rotate="#song" data-show="#song-content-div">Song</div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseSoundcloudTrack()"></div>
     </div>
   </div>  
   
   <div class="holder" id="jokediv">
-    <div class="flip-cards" id="joke">
-      <div class="front-card" data-target="#joke">Joke</div>
+    <div class="flip-cards" id="joke" >
+      <div class="front-card" data-rotate="#joke" data-show="#joke-content-div">Joke</div>
       <div class="reverse-card">Joke large<img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>
 
   <div class="holder" id="centerdiv">
     <div class="flip-cards" id="nine">
-      <div class="front-card" data-target="#nine"><span id="ninediv">9</span>SqRs</span></div>
-      <div class="reverse-card"><span>User Info & Settings</span>
-        <img class="close-icon" src="assets/close.png">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-
-        <% if user_signed_in? %>
-          <%= current_user.email %>
-          <br>
-          <%= link_to "Edit profile", edit_user_registration_path %>
-          <br>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %>
-          <br>
-          <%= link_to "Login", user_session_path %>
-          <br>
-          <%#= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
-        <% end %>
+      <div class="front-card" data-rotate="#nine" data-show="#center-content-div">
+        <span id="ninediv">9</span>SqRs</span>
       </div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>  
 
   <div class="holder" id="storydiv">
     <div class="flip-cards" id="story">
-      <div class="front-card" data-target="#story">Story</div>
+      <div class="front-card" data-rotate="#story" data-show="#story-content-div">Story</div>
       <div class="reverse-card">Story large<img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="picture">
-      <div class="front-card" data-target="#picture">Picture</div>
+      <div class="front-card" data-rotate="#picture" data-show="#picture-content-div">Picture</div>
       <div class="reverse-card">Picture large<img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>
     
   <div class="holder">
     <div class="flip-cards" id="game">
-      <div class="front-card" data-target="#game">Game</div>
+      <div class="front-card" data-rotate="#game" data-show="#game-content-div">Game</div>
       <div class="reverse-card">Game large<img class="close-icon" src="assets/close.png"></div>
     </div>
   </div>
     
   <div class="holder">
     <div class="flip-cards" id="random">
-      <div class="front-card" data-target="#random">Random</div>
+      <div class="front-card" data-rotate="#random" data-show="#random-content-div">Random</div>
       <div class="reverse-card">Random large<img class="close-icon" src="assets/close.png"></div>
     </div>  
   </div> 
+
+  <div id="video-content-div" class="content-div-styling"></div>
+  
+  <div id="thought-content-div" class="content-div-styling"></div>
+
+  <div id="song-content-div" class="content-div-styling">
+    <div id="soundcloud-div"></div>
+    <div>
+      <button id="next" ng-click="newSoundcloudTrack()">next</button>
+    </div>
+  </div>
+
+  <div id="joke-content-div" class="content-div-styling"></div>
+
+  <div id="center-content-div" class="content-div-styling">
+    <span>User Info & Settings</span>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+      <br>
+      <%= link_to "Edit profile", edit_user_registration_path %>
+      <br>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %>
+      <br>
+      <%= link_to "Login", user_session_path %>
+      <br>
+      <%#= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
+    <% end %>
+  </div>
+  
+  <div id="story-content-div" class="content-div-styling"></div>
+  
+  <div id="picture-content-div" class="content-div-styling"></div>
+  
+  <div id="game-content-div" class="content-div-styling"></div>
+  
+  <div id="random-content-div" class="content-div-styling"></div>
 
 </div>
 

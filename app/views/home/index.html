@@ -18,7 +18,8 @@
   <div class="holder">
     <div class="flip-cards" id="song" ng-click="newSoundcloudTrack()">
       <div class="front-card" data-rotate="#song" data-show="#song-content-div">Song</div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseSoundcloudTrack()"></div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseSoundcloudTrack()">
+      </div>
     </div>
   </div>  
   
@@ -34,7 +35,7 @@
       <div class="front-card" data-rotate="#nine" data-show="#center-content-div">
         <span id="ninediv">9</span>SqRs</span>
       </div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>  
 
@@ -73,7 +74,8 @@
   <div id="song-content-div" class="content-div-styling">
     <div id="soundcloud-div"></div>
     <div>
-      <button id="next" ng-click="newSoundcloudTrack()">next</button>
+      <button ng-click="newSoundcloudTrack()">next</button>
+      <button ng-click="favouriteThis()">Favourite this!</button>
     </div>
   </div>
 
@@ -95,7 +97,7 @@
       <br>
       <%= link_to "Login", user_session_path %>
       <br>
-      <%#= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
+      <%= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
     <% end %>
   </div>
   

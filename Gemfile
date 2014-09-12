@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.17'
+gem "pry-rails"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,6 +12,7 @@ gem 'devise'
 
 gem "omniauth-google-oauth2"
 gem "omniauth-github"
+gem 'angularjs-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

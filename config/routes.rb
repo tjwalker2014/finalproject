@@ -1,6 +1,6 @@
 FinalProjectApp::Application.routes.draw do
 
-  resources :media
+  resources :contents
 
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 

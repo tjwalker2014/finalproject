@@ -18,7 +18,6 @@ myApp.setUpEventListeners = function(){
       $('.front-card').removeClass('avoid-clicks');
       $div_to_show.removeClass('show-div');
     });
-
   });
 
 };
@@ -47,29 +46,35 @@ $(document).ready(function(){
       });
 
       SC.get('/tracks', function(tracks) {
-        console.log(tracks.length);
+        // console.log(tracks.length);
 
         // var arrayLength = tracks.length;
         tracks.forEach(function(element){
-          console.log(element.id)
-          console.log(element.title)
+          // console.log(element.id)
+          // console.log(element.title)
+          // console.log(element)
         });
         
         var random = Math.floor(Math.random() * 49);
         var track_url = tracks[random].permalink_url;
-        // console.log(random, track_url);
+        console.log(random, track_url);
       
         SC.oEmbed(track_url, function(oembed){
           $('#soundcloud-div').empty()
           $('#soundcloud-div').append(oembed['html']);
-          test = (oembed['html'])  
+          test = (oembed['html']) // save this as an angular variable so other functions have access to it
+          // console.log(oembed) 
         });
 
         $scope.pauseSoundcloudTrack = function() { 
           var widget = SC.Widget(document.querySelector('#soundcloud-div iframe'));
           widget.pause();
-        }
+        }      
       });
+
+      $scope.favouriteThis = function () {
+        $http.post('/contents.json', {tom: "test"})
+      }       
     }  
   }]);
 })();

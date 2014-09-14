@@ -41,8 +41,8 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    binding.pry
     @content = current_user.contents.new(params[:content])
+    binding.pry
 
     respond_to do |format|
       if @content.save

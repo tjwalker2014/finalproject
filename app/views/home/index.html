@@ -16,9 +16,9 @@
   </div>  
 
   <div class="holder">
-    <div class="flip-cards" id="song" ng-click="newSoundcloudTrack()">
-      <div class="front-card" data-rotate="#song" data-show="#song-content-div">Song</div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseSoundcloudTrack()">
+    <div class="flip-cards" id="song">
+      <div class="front-card" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()">Song</div>
+      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseTrack()">
       </div>
     </div>
   </div>  
@@ -74,7 +74,7 @@
   <div id="song-content-div" class="content-div-styling">
     <div id="soundcloud-div"></div>
     <div>
-      <button ng-click="newSoundcloudTrack()">next</button>
+      <button ng-click="nextTrack()">next</button>
       <button ng-click="favouriteThis()">Favourite this!</button>
     </div>
   </div>

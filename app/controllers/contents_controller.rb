@@ -41,9 +41,9 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    @content = current_user.contents.new(params[:content])
     binding.pry
-
+    @content = current_user.contents.new(params[:content])
+    
     respond_to do |format|
       if @content.save
         @favourite = Favourite.new(content_id: params[:content_id], user_id: params[:user_id])

@@ -92,6 +92,17 @@
       <%= link_to "Edit profile", edit_user_registration_path %>
       <br>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+      <div>
+        <br>
+        <p>Favourites:</p><br> 
+        <% current_user.contents.each do |content| %>
+          <p><%= content.title %> (Embedded link to square?)</p><br><br>
+        <% end %>
+        <br>
+        <p>Link to Dashboard</p>
+      </div>
+
     <% else %>
       <%= link_to "Sign up", new_user_registration_path %>
       <br>
@@ -108,6 +119,11 @@
   <div id="game-content-div" class="content-div-styling"></div>
   
   <div id="random-content-div" class="content-div-styling"></div>
+
+  <div id="dashboard-div" class="content-div-styling">
+    <p>Most popular</p>
+
+  </div>
 
 </div>
 

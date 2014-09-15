@@ -1,4 +1,5 @@
 class ContentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   # GET /contents
   # GET /contents.json
   def index
@@ -41,13 +42,18 @@ class ContentsController < ApplicationController
   # POST /contents
   # POST /contents.json
   def create
-    binding.pry
-    @content = Content.new(params[:content])
+    @content = Content.find_by_url(params[:content][:url])
+    # binding.pry
+    unless @content
+      @content = Content.new(params[:content])
+    end
     
     respond_to do |format|
       if @content.save
-        binding.pry
         @favourite = Favourite.create(content_id: @content.id, user_id: params[:user_id])
+        favourite_count = Favourite.where content_id: @content.id
+        @content.likes = favourite_count.count
+        @content.save
 
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
         format.json { render json: @content, status: :created, location: @content }

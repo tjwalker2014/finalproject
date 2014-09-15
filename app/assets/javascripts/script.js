@@ -52,20 +52,13 @@ $(document).ready(function(){
       });
 
       SC.get('https://api.soundcloud.com/playlists/50868471/tracks', function(tracks) {
-        //console.log(tracks);
-
-        // var arrayLength = tracks.length;
-        // tracks.forEach(function(element){
-          // console.log(element.id)
-          // console.log(element.title)
-          // console.log(element)
-        // });
         
-        var random = Math.floor(Math.random() * 49);
-        var track_url = tracks[random].permalink_url;
-        console.log(random, track_url);
-      
-        SC.oEmbed(track_url, { show_comments: false, width: "100%" }, function(oembed){
+        $scope.random = Math.floor(Math.random() * 49);
+        $scope.track = tracks[$scope.random]
+        $scope.track_title = $scope.track.title
+        $scope.track_url = $scope.track.permalink_url
+
+        SC.oEmbed($scope.track_url, { show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
           $('#soundcloud-div').append(oembed['html']);
           //test = (oembed['html']) // save this as an angular variable so other functions have access to it
@@ -83,9 +76,12 @@ $(document).ready(function(){
         // .load method described in soundcloud docs reloads widget with new song but at smaller size, hence repeated code below  
 
         $scope.nextTrack = function() { 
-          var random = Math.floor(Math.random() * 49);
-          var track_url = tracks[random].permalink_url;
-          SC.oEmbed(track_url, { auto_play: true, show_comments: false, width: "100%" }, function(oembed){
+          $scope.random = Math.floor(Math.random() * 49);
+          $scope.track = tracks[$scope.random]
+          $scope.track_title = $scope.track.title
+          $scope.track_url = $scope.track.permalink_url
+          
+          SC.oEmbed($scope.track_url, { auto_play: true, show_comments: false, width: "100%" }, function(oembed){
             $('#soundcloud-div').empty();
             $('#soundcloud-div').append(oembed['html']);
           });
@@ -94,10 +90,7 @@ $(document).ready(function(){
       });
 
       $scope.favouriteThis = function () {
-        // var user = $scope.user.id
-        // console.log(user)
-        // $http.post('/contents.json', {$scope.user.id})
-        $http.post('/contents.json', {user_id: $scope.user.id, content: {title: "Chocolate", url: "http://soundcloud.com/the1975/chocolate", type: "Song"}})
+        $http.post('/contents.json', {user_id: $scope.user.id, content: {title: $scope.track_title, url: $scope.track_url, type: "Song"}})
       }       
     //}  
   }]);

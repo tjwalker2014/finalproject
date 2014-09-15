@@ -1,6 +1,8 @@
 class Content < ActiveRecord::Base
-  attr_accessible :dislikes, :likes, :title, :type, :url
+  attr_accessible :title, :type, :url, :user_id
 
-  has_many :favourites, dependent: :destroy
-  has_many :users, through: :favourites 
+  # has_many :favourites, dependent: :destroy
+  # has_many :users, through: :favourites
+
+  belongs_to :user
 end

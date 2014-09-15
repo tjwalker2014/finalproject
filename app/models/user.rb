@@ -8,8 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_many :favourites
-  has_many :contents, through: :favourites
+  # has_many :favourites
+  # has_many :contents, through: :favourites
+
+  has_many :contents
 
   has_many :authentications
 

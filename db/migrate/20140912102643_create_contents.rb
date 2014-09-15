@@ -4,8 +4,7 @@ class CreateContents < ActiveRecord::Migration
       t.string :title
       t.string :url
       t.string :type
-      t.integer :likes
-      t.integer :dislikes
+      t.integer :user_id
 
       t.timestamps
     end

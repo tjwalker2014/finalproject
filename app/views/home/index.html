@@ -82,9 +82,9 @@
   <div id="joke-content-div" class="content-div-styling"></div>
 
   <div id="center-content-div" class="content-div-styling">
-    <span>User Info & Settings</span>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <span>User Info & Settings</span><br>
+    <p class="notice"><%= notice %></p><br>
+    <p class="alert"><%= alert %></p><br>
 
     <% if user_signed_in? %>
       <%= current_user.email %>
@@ -95,12 +95,14 @@
 
       <div>
         <br>
-        <p>Favourites:</p><br> 
+      <p>Favourites:</p><br> 
         <% current_user.contents.each do |content| %>
-          <p><%= content.title %> (Embedded link to square?)</p><br><br>
-        <% end %>
-        <br>
-        <p>Link to Dashboard</p>
+          <p><%= content.title %> (Embedded link to square?)</p>
+        <% end %>  
+      <br>
+
+      <p>Dashboard - most popular:</p><br>
+        <%= @zipped %> 
       </div>
 
     <% else %>
@@ -121,7 +123,8 @@
   <div id="random-content-div" class="content-div-styling"></div>
 
   <div id="dashboard-div" class="content-div-styling">
-    <p>Most popular</p>
+    <p>Most popular:</p><br>
+    <p></p>
 
   </div>
 

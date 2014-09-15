@@ -88,7 +88,7 @@ p {
   font-size: 20px;
   padding: 0;
   margin: 0;
-  line-height: 0;
+  line-height: 1;
 }
 
 .close-icon {
@@ -96,9 +96,10 @@ p {
   position: absolute;
   right: 5px;
   top: 5px;
-  border: 2px solid #FF8533;
+  border: 1px solid #FF8533;
   border-radius: 50%;
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
+  margin: 5px;
 }
 
 .close-icon:hover {
@@ -134,10 +135,10 @@ iframe {
 
 .content-div-styling {
   position: absolute;
-  background: blue;
+  background: #FF8533;
   height: 90%;
   width: 90%;
-  top: 5%;
+  top: 10%;
   left: -100% ;
   z-index: 1000000;
   opacity: 0;

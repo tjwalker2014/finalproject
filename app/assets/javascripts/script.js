@@ -34,6 +34,19 @@ $(document).ready(function(){
         
     //$scope.newSoundcloudTrack = function() {
 
+      // $http.get('/').success(function(data){
+      //   console.log(data)
+      // })
+
+    $.ajax({
+      url: '/',
+      dataType: 'json',
+      method: 'GET'
+    }).success(function(data){
+      console.log(data);
+      $scope.user = data
+    })
+
       SC.initialize({
         client_id: "f2152c9cb7d7b6a1ab6cb2a93c90f8b7"
       });
@@ -50,7 +63,7 @@ $(document).ready(function(){
         
         var random = Math.floor(Math.random() * 49);
         var track_url = tracks[random].permalink_url;
-        //console.log(random, track_url);
+        console.log(random, track_url);
       
         SC.oEmbed(track_url, { show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
@@ -81,7 +94,10 @@ $(document).ready(function(){
       });
 
       $scope.favouriteThis = function () {
-        $http.post('/contents.json', {tom: "test"})
+        // var user = $scope.user.id
+        // console.log(user)
+        // $http.post('/contents.json', {$scope.user.id})
+        $http.post('/contents.json', {user_id: $scope.user.id, content: {title: "Chocolate", url: "http://soundcloud.com/the1975/chocolate", type: "Song"}})
       }       
     //}  
   }]);

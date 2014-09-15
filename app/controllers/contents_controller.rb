@@ -42,11 +42,12 @@ class ContentsController < ApplicationController
   # POST /contents.json
   def create
     binding.pry
-    @content = current_user.contents.new(params[:content])
+    @content = Content.new(params[:content])
     
     respond_to do |format|
       if @content.save
-        @favourite = Favourite.new(content_id: params[:content_id], user_id: params[:user_id])
+        binding.pry
+        @favourite = Favourite.create(content_id: @content.id, user_id: params[:user_id])
 
         format.html { redirect_to @content, notice: 'Content was successfully created.' }
         format.json { render json: @content, status: :created, location: @content }

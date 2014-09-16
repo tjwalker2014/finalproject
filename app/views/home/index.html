@@ -97,14 +97,13 @@
         <br>
       <p>Favourites:</p><br> 
         <% current_user.contents.each do |content| %>
-          <p><%= content.title %> (Embedded link to square?)</p>
+          <p class="linkpara" data-rotate="#song" data-show="#song-content-div" ng-click="selectedtrackEmbed('<%= content.url %>')"><%= content.title %> (Embedded link to square?)</p>
         <% end %>  
       <br>
 
-      <p>Dashboard - most popular:</p><br>
+      <p>Dashboard - most popular songs:</p><br>
         <% @zipped.each do |song| %>
-          <p><%= song[0] %></p>
-          <p><%= song[1] %></p>
+          <p class="linkpara" data-rotate="#song" data-show="#song-content-div" ng-click="selectedtrackEmbed('<%= song[1] %>')"><%= song[1] %> <%= song[0] %></p>
         <% end %>
       </div>
 

@@ -102,7 +102,10 @@
       <br>
 
       <p>Dashboard - most popular:</p><br>
-        <%= @zipped %> 
+        <% @zipped.each do |song| %>
+          <p><%= song[0] %></p>
+          <p><%= song[1] %></p>
+        <% end %>
       </div>
 
     <% else %>

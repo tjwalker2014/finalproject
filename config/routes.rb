@@ -7,6 +7,10 @@ FinalProjectApp::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
   root to: "home#index"
+
+  get '/qotd', to: 'home#qotd'
+
+  get '/vid', to: 'home#vid'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

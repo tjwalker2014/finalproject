@@ -3,7 +3,7 @@
   <div class="holder">
     <div class="flip-cards" id="video">
       <div class="front-card" data-rotate="#video" data-show="#video-content-div">Video</div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png"><iframe width="420" height="345" src="http://www.youtube.com/embed/NFgx5MY72Dk"></iframe>
+      <div class="reverse-card"><img class="close-icon" src="assets/close3.png">
       </div>
     </div>
   </div>
@@ -11,14 +11,14 @@
   <div class="holder">
     <div class="flip-cards" id="thought">
       <div class="front-card" data-rotate="#thought" data-show="#thought-content-div">Thought</div>
-      <div class="reverse-card">Thought large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Thought large<img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="song">
       <div class="front-card" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()">Song</div>
-      <div class="reverse-card"><img class="close-icon" src="assets/close.png" ng-click="pauseTrack()">
+      <div class="reverse-card"><img class="close-icon" src="assets/close3.png" ng-click="pauseTrack()">
       </div>
     </div>
   </div>  
@@ -26,7 +26,7 @@
   <div class="holder" id="jokediv">
     <div class="flip-cards" id="joke" >
       <div class="front-card" data-rotate="#joke" data-show="#joke-content-div">Joke</div>
-      <div class="reverse-card">Joke large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Joke large<img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>
 
@@ -42,40 +42,47 @@
   <div class="holder" id="storydiv">
     <div class="flip-cards" id="story">
       <div class="front-card" data-rotate="#story" data-show="#story-content-div">Story</div>
-      <div class="reverse-card">Story large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Story large<img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="picture">
       <div class="front-card" data-rotate="#picture" data-show="#picture-content-div">Picture</div>
-      <div class="reverse-card">Picture large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Picture large<img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>
     
   <div class="holder">
     <div class="flip-cards" id="game">
       <div class="front-card" data-rotate="#game" data-show="#game-content-div">Game</div>
-      <div class="reverse-card">Game large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Game large<img class="close-icon" src="assets/close3.png"></div>
     </div>
   </div>
     
   <div class="holder">
     <div class="flip-cards" id="random">
       <div class="front-card" data-rotate="#random" data-show="#random-content-div">Random</div>
-      <div class="reverse-card">Random large<img class="close-icon" src="assets/close.png"></div>
+      <div class="reverse-card">Random large<img class="close-icon" src="assets/close3.png"></div>
     </div>  
   </div> 
 
-  <div id="video-content-div" class="content-div-styling"></div>
+  <div id="video-content-div" class="content-div-styling">
+    <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-" frameborder="0" allowfullscreen></iframe>
+  </div>
   
-  <div id="thought-content-div" class="content-div-styling"></div>
+  <div id="thought-content-div" class="content-div-styling">
+    <div id="thought-div"></div>
+    <div>
+      <button ng-click="favouriteThisQuote()">Favourite this!</button>
+    </div>
+  </div>
 
   <div id="song-content-div" class="content-div-styling">
     <div id="soundcloud-div"></div>
     <div>
       <button ng-click="nextTrack()">next</button>
-      <button ng-click="favouriteThis()">Favourite this!</button>
+      <button ng-click="favouriteThisSong()">Favourite this!</button>
     </div>
   </div>
 
@@ -102,8 +109,8 @@
       <br>
 
       <p>Dashboard - most popular songs:</p><br>
-        <% @zipped.each do |song| %>
-          <p class="linkpara" data-rotate="#song" data-show="#song-content-div" ng-click="selectedtrackEmbed('<%= song[1] %>')"><%= song[1] %> <%= song[0] %></p>
+        <% @zippedtopthree.each do |song| %>
+          <p class="linkpara" data-rotate="#song" data-show="#song-content-div" ng-click="selectedtrackEmbed('<%= song[0] %>')"><%= song[0] %> <%= song[1] %></p>
         <% end %>
       </div>
 

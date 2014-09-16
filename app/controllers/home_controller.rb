@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   def index
     @contents = Content.all
     
@@ -9,7 +10,8 @@ class HomeController < ApplicationController
                 blah.count
               end
 
-    @zipped = @counts.zip(@urls).sort.reverse
+    @zipped = @counts.zip(@urls)
+    @zippedtopthree = Content.group('url').order('count_url DESC').limit(3).count('url')
 
     #binding.pry
   
@@ -17,5 +19,15 @@ class HomeController < ApplicationController
       format.html
       format.json {render json: current_user}
     end
+  end
+
+  def qotd
+    response = Net::HTTP.get(URI('https://favqs.com/api/qotd')) 
+    render text: response
+  end
+
+  def vid
+    response = Net::HTTP.get(URI('https://gdata.youtube.com/api/playlists/UCF0pVplsI8R5kcAqgtoRqoA?v=2')) 
+    render text: response
   end
 end

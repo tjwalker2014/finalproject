@@ -13,8 +13,6 @@ myApp.setUpEventListeners = function(){
       $div_to_show.addClass('show-div');
     }
 
-    // debugger
-
     $('.close-icon').on('click', function(){
       $div_to_rotate.removeClass('rotate');
       $('.front-card').removeClass('avoid-clicks');
@@ -56,9 +54,8 @@ $(document).ready(function(){
       url: '/',
       dataType: 'json',
       method: 'GET'
-    }).success(function(data){
-      console.log(data);
-      $scope.user = data
+    }).success(function(userdata){
+      $scope.user = userdata
     })
 
     SC.initialize({
@@ -66,9 +63,10 @@ $(document).ready(function(){
     });
 
     SC.get('https://api.soundcloud.com/playlists/50868471/tracks', function(tracks) {
-      
+      //console.log(tracks)
       $scope.random = Math.floor(Math.random() * 49);
       $scope.track = tracks[$scope.random]
+      $scope.track_author = $scope.track.user.username
       $scope.track_title = $scope.track.title
       $scope.track_url = $scope.track.permalink_url
 
@@ -76,7 +74,6 @@ $(document).ready(function(){
         SC.oEmbed($scope.track_url, { show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
           $('#soundcloud-div').append(oembed['html']);
-          //test = (oembed['html']) // save this as an angular variable so other functions have access to it
           widget = SC.Widget(document.querySelector('#soundcloud-div iframe'));
         });
       }
@@ -84,7 +81,7 @@ $(document).ready(function(){
       $scope.soundcloudEmbed();
 
       $scope.selectedtrackEmbed = function(track_url) {
-        console.log(track_url)    
+        // console.log(track_url)    
         SC.oEmbed(track_url, { show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
           $('#soundcloud-div').append(oembed['html']);
@@ -105,6 +102,7 @@ $(document).ready(function(){
       $scope.nextTrack = function() { 
         $scope.random = Math.floor(Math.random() * 49);
         $scope.track = tracks[$scope.random]
+        $scope.track_author = $scope.track.user.username
         $scope.track_title = $scope.track.title
         $scope.track_url = $scope.track.permalink_url
         $scope.soundcloudEmbed();
@@ -112,9 +110,40 @@ $(document).ready(function(){
 
     });
 
-    $scope.favouriteThis = function () {
-      $http.post('/contents.json', {user_id: $scope.user.id, content: {title: $scope.track_title, url: $scope.track_url, type: "Song"}})
-    }         
+    $scope.favouriteThisSong = function () {
+      $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.track_author, title: $scope.track_title, url: $scope.track_url, type: "Song"}})
+    }
+
+    $http.get('/qotd').success(function(quotedata){
+      $scope.quote_author = quotedata.quote.author
+      $scope.quote_title = quotedata.quote.body
+      $scope.quote_url = quotedata.quote.url 
+      $('#thought-div').empty();
+      $('#thought-div').append($scope.quote_title); 
+    });
+
+    $scope.favouriteThisQuote = function () {
+      $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.quote_author, title: $scope.quote_title, url: $scope.quote_url, type: "Thought"}})
+    }
+
+    // $http.get('/vid').success(function(data) {
+    //   console.log(data)
+    // })
+
+    // $http.get('https://www.googleapis.com/youtube/v3/playlists?id=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck&part=snippet').success(function(data) {
+    //   console.log(data)
+    // })
+
+    // $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLB03EA9545DD188C3&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(data) {
+    //   console.log(data)
+    // })
+
+    $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(data) {
+      console.log(data)
+    })
+
+
+
   }]);
 })();
 

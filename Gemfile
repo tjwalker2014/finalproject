@@ -14,6 +14,7 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem "omniauth-github"
 gem 'angularjs-rails'
+gem 'rails_12factor'
 
 # Gems used only for assets and not required
 # in production environments by default.

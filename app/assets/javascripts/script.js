@@ -63,7 +63,7 @@ $(document).ready(function(){
     });
 
     SC.get('https://api.soundcloud.com/playlists/50868471/tracks', function(tracks) {
-      //console.log(tracks)
+      // console.log(tracks)
       $scope.random = Math.floor(Math.random() * 49);
       $scope.track = tracks[$scope.random]
       $scope.track_author = $scope.track.user.username
@@ -126,23 +126,35 @@ $(document).ready(function(){
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.quote_author, title: $scope.quote_title, url: $scope.quote_url, type: "Thought"}})
     }
 
-    // $http.get('/vid').success(function(data) {
-    //   console.log(data)
-    // })
+   
+    $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(videos) {
+      // console.log(videos.items[0].snippet)
+      $scope.random = Math.floor(Math.random() * 49);
+      $scope.video = videos.items[$scope.random]
+      $scope.video_author = $scope.video.snippet.channelTitle
+      $scope.video_title = $scope.video.snippet.title
+      $scope.video_url = $scope.video.snippet.resourceId.videoId
 
-    // $http.get('https://www.googleapis.com/youtube/v3/playlists?id=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck&part=snippet').success(function(data) {
-    //   console.log(data)
-    // })
+      $scope.youtubeEmbed = function() {
+        $('#youtube-div').empty();
+        $('#youtube-div').append('<iframe width="560" height="315" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
+      }
 
-    // $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLB03EA9545DD188C3&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(data) {
-    //   console.log(data)
-    // })
+      $scope.youtubeEmbed();
 
-    $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(data) {
-      console.log(data)
+      $scope.nextVideo = function() { 
+        $scope.random = Math.floor(Math.random() * 49);
+        $scope.video = videos.items[$scope.random]
+        $scope.video_author = $scope.video.snippet.channelTitle
+        $scope.video_title = $scope.video.snippet.title
+        $scope.video_url = $scope.video.snippet.resourceId.videoId
+        $scope.youtubeEmbed();
+      }
     })
 
-
+    $scope.favouriteThisVideo = function () {
+      $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}})
+    }
 
   }]);
 })();

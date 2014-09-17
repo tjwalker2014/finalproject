@@ -10,7 +10,6 @@ FinalProjectApp::Application.routes.draw do
 
   get '/qotd', to: 'home#qotd'
 
-  get '/vid', to: 'home#vid'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -67,8 +67,12 @@
     </div>  
   </div> 
 
+<%# test_id = 'ZzEJQqw8HC0' %>
   <div id="video-content-div" class="content-div-styling">
-    <iframe width="560" height="315" src="//www.youtube.com/embed/videoseries?list=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-" frameborder="0" allowfullscreen></iframe>
+    <div id="youtube-div"></div>
+    <!-- <iframe width="560" height="315" src="//www.youtube.com/embed/<%#= test_id %>?rel=0" frameborder="0" allowfullscreen></iframe> -->
+    <button ng-click="nextVideo()">next</button>
+    <button ng-click="favouriteThisVideo()">Favourite this!</button>
   </div>
   
   <div id="thought-content-div" class="content-div-styling">

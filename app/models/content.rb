@@ -6,5 +6,5 @@ class Content < ActiveRecord::Base
 
   belongs_to :user
 
- 
+  scope :top_five, group('id').order('count_title DESC').limit(5).count('title').map{ |id, count| self.find(id)}
 end

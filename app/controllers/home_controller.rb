@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   def index
     @contents = Content.all
 
-    @zippedtopfive = Content.top_five
+    #@zippedtopfive = Content.top_five
+    @zippedtopfive = Content.all
     #binding.pry
   
     respond_to do |format|

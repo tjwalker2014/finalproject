@@ -8,5 +8,5 @@ class Content < ActiveRecord::Base
 
   # scope :top_five, group('id').order('count_title DESC').limit(5).count('title').map{ |id, count| self.find(id)}
 
-  scope :top_five, lamda {group('id').order('count_title DESC').limit(5).count('title').map{ |id, count| self.find(id)}}
+  scope :top_five, lambda {group('id').order('count_title DESC').limit(5).count('title').map{ |id, count| self.find(id)}}
 end

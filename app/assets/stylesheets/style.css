@@ -22,11 +22,6 @@ body {
   transform:scale(0.95);
 }
 
-.front-card:active {
-  letter-spacing: -1px;
-  font-size: 48px;
-}
-
 /* 3D css*/
 
 .flip-container {
@@ -110,12 +105,12 @@ iframe {
   width: 80%;
 }
 
-#ninediv {
+.ninediv {
   font-size: 60px;
   font-weight: 400;
 }
 
-#centerdiv{
+#centerdiv, .sqrsweight{
   font-weight: 300;
 }
 
@@ -150,7 +145,34 @@ iframe {
   opacity: 1;
 }
 
+.fronticon {
+  display: none;
+}
+
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-  
+@media only screen and (max-width : 340px) {
+  body {
+    width: 340px;
+  }
+  .flip-container{
+    width: 100%;
+  }
+  .squaretext {
+    display: none;
+  }
+  .holder {
+    width: 32%;
+    height: 15vh;
+  }
+  .ninediv {
+    display: none;
+  }
+  .front-card {
+    line-height: 2.5;
+  }
+  .fronticon {
+    display: inline-block;
+    color: white;
+    margin: 0 auto;
+}
 }

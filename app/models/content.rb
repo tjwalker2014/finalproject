@@ -5,4 +5,6 @@ class Content < ActiveRecord::Base
   # has_many :users, through: :favourites
 
   belongs_to :user
+
+  scope :top_five, group('id').order('count_title DESC').limit(5).count('title').map{ |id, count| self.find(id)}
 end

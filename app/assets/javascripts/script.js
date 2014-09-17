@@ -70,7 +70,7 @@ $(document).ready(function(){
       $scope.track_title = $scope.track.title
       $scope.track_url = $scope.track.permalink_url
 
-      $scope.soundcloudEmbed = function() {
+      $scope.initialsoundcloudEmbed = function() {
         SC.oEmbed($scope.track_url, { show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
           $('#soundcloud-div').append(oembed['html']);
@@ -78,16 +78,17 @@ $(document).ready(function(){
         });
       }
 
-      $scope.soundcloudEmbed();
+      $scope.initialsoundcloudEmbed();
 
-      $scope.selectedtrackEmbed = function(track_url) {
-        // console.log(track_url)    
-        SC.oEmbed(track_url, { show_comments: false, width: "100%" }, function(oembed){
+      $scope.soundcloudEmbed = function() {
+        SC.oEmbed($scope.track_url, { auto_play: true, show_comments: false, width: "100%" }, function(oembed){
           $('#soundcloud-div').empty();
           $('#soundcloud-div').append(oembed['html']);
           widget = SC.Widget(document.querySelector('#soundcloud-div iframe'));
         });
       }
+
+      
       
       $scope.playTrack = function() {     
         widget.play();
@@ -110,7 +111,17 @@ $(document).ready(function(){
 
     });
 
-    $scope.favouriteThisSong = function () {
+    $scope.selectedTrackEmbed = function(track_url) {
+      console.log(track_url)
+      // binding.pry    
+      SC.oEmbed(track_url, { auto_play: true, show_comments: false, width: "100%" }, function(oembed){
+        $('#soundcloud-div').empty();
+        $('#soundcloud-div').append(oembed['html']);
+        widget = SC.Widget(document.querySelector('#soundcloud-div iframe'));
+      });
+    }
+
+    $scope.favouriteThisTrack = function () {
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.track_author, title: $scope.track_title, url: $scope.track_url, type: "Song"}})
     }
 
@@ -122,13 +133,18 @@ $(document).ready(function(){
       $('#thought-div').append($scope.quote_title); 
     });
 
-    $scope.favouriteThisQuote = function () {
+    $scope.favouriteThisThought = function () {
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.quote_author, title: $scope.quote_title, url: $scope.quote_url, type: "Thought"}})
+    }
+
+    $scope.selectedThoughtEmbed = function(data) {
+      console.log(data)    
+      $('#thought-div').empty();
+      $('#thought-div').append(data);
     }
 
    
     $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(videos) {
-      // console.log(videos.items[0].snippet)
       $scope.random = Math.floor(Math.random() * 49);
       $scope.video = videos.items[$scope.random]
       $scope.video_author = $scope.video.snippet.channelTitle
@@ -150,10 +166,16 @@ $(document).ready(function(){
         $scope.video_url = $scope.video.snippet.resourceId.videoId
         $scope.youtubeEmbed();
       }
-    })
+    });
 
     $scope.favouriteThisVideo = function () {
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}})
+    }
+
+    $scope.selectedVideoEmbed = function(data) {
+      console.log(data)    
+      // $('#youtube-div').empty();
+      // $('#youtube-div').append('<iframe width="560" height="315" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
     }
 
   }]);

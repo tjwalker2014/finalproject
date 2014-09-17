@@ -23,6 +23,3 @@ production:
   database: final_app_production
   pool: 5
   timeout: 5000
-
-RAILS_ENV=production bundle exec rake db:create
-RAILS_ENV=production bundle exec rake assets:precompile

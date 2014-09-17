@@ -150,9 +150,9 @@ iframe {
 }
 
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 340px) {
+@media only screen and (max-width : 370px) {
   body {
-    width: 340px;
+    width: 100%;
   }
   .flip-container{
     width: 100%;
@@ -174,5 +174,5 @@ iframe {
     display: inline-block;
     color: white;
     margin: 0 auto;
-}
+  }
 }

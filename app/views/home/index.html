@@ -87,6 +87,7 @@
       <button ng-click="nextTrack()">next</button>
       <%= favourite_button('favouriteThisTrack()') %>
     </div>
+    <div class="favbutton">Favourite this</div>
   </div>
 
   <div id="joke-content-div" class="content-div-styling"></div>
@@ -97,33 +98,33 @@
     <p class="alert"><%= alert %></p><br>
 
     <% if user_signed_in? %>
-      <%= current_user.email %>
+      <%= current_user.email %><br>
       <br>
       <%= link_to "Edit profile", edit_user_registration_path %>
       <br>
       <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-
+      <br>
       <div>
-        <br>
-      <p>Favourited Songs:</p><br> 
+      <br>
+      <p class="heading">Favourited Tracks:</p><br>
         <% current_user.contents.where(type: 'Song').each do |content| %>
           <p class="linkpara" data-rotate="#song" data-show="#song-content-div" ng-click="selectedTrackEmbed('<%= content.url %>')"><%= content.title %></p>
         <% end %>  
       <br>
 
-      <p>Favourited Thoughts:</p><br> 
+      <p class="heading">Favourited Thoughts:</p><br> 
         <% current_user.contents.where(type: 'Thought').each do |content| %>
           <p class="linkpara" data-rotate="#thought" data-show="#thought-content-div" ng-click="selectedThoughtEmbed('<%= content.title %>', '<%= content.author %>')"><%= content.title %></p>
         <% end %>  
       <br>
 
-      <p>Favourited Videos:</p><br> 
+      <p class="heading">Favourited Videos:</p><br> 
         <% current_user.contents.where(type: 'Video').each do |content| %>
           <p class="linkpara" data-rotate="#video" data-show="#video-content-div" ng-click="selectedVideoEmbed('<%= content.url %>')"><%= content.title %></p>
         <% end %>  
       <br>
 
-      <p>Dashboard:</p><br>
+      <p class="heading">Dashboard:</p><br>
         <% @zippedtopfive.each do |content| %>
           <%= paragraph_link(content) %>
         <% end %>

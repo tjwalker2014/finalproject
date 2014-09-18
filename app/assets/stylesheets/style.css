@@ -138,6 +138,8 @@ iframe {
 }
 
 .content-div-styling {
+  padding-top: 5vh;
+  padding-left: 10vh;
   position: absolute;
   background: #FF8533;
   height: 90%;
@@ -146,7 +148,7 @@ iframe {
   left: -100% ;
   z-index: 1000000;
   opacity: 0;
-  font-size: 20px;
+  font-size: 25px;
   color: white;
 }
 
@@ -159,6 +161,29 @@ iframe {
 
 .fronticon {
   display: none;
+}
+
+.heading {
+  font-weight: 400;
+}
+
+.linkpara:hover {
+  cursor: pointer;
+}
+
+.favbutton {
+  border: 2px solid white;
+  border-radius: 5px;
+  width: 25%;
+  padding: 5px;
+  display: none;
+}
+
+.favbutton:hover {
+  transition: all .2s;
+  -webkit-transform:scale(0.95);
+  transform:scale(0.95);
+  cursor: pointer;
 }
 
 /* Custom, iPhone Retina */ 

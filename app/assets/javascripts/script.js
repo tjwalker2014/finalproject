@@ -153,7 +153,7 @@ $(document).ready(function(){
 
       $scope.youtubeEmbed = function() {
         $('#youtube-div').empty();
-        $('#youtube-div').append('<iframe width="560" height="315" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
+        $('#youtube-div').append('<iframe width="640" height="390" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
       }
 
       $scope.youtubeEmbed();
@@ -175,7 +175,7 @@ $(document).ready(function(){
     $scope.selectedVideoEmbed = function(data) {
       console.log(data)    
       // $('#youtube-div').empty();
-      // $('#youtube-div').append('<iframe width="560" height="315" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
+      // $('#youtube-div').append('<iframe width="640" height="390" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
     }
 
   }]);

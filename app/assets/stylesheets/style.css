@@ -11,15 +11,15 @@ body {
 
 .front-card {
   line-height: 33vh;
-  transition-property: all;
-  transition-duration: .2s;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: .2s;
 }
 
 .front-card:hover {
   opacity: 0.5;
   font-size: 52px;
   z-index: 100;
-  transform:scale(0.95);
+  -webkit-transform:scale(0.95);
 }
 
 /* 3D css*/
@@ -37,8 +37,8 @@ body {
   text-align: center;
   width: 100%;
   height: 100%;
-  transition: all 0.5s ease;
-  transform-style: preserve-3d;
+  -webkit-transition: all 0.5s ease;
+  -webkit-transform-style: preserve-3d;
 }
 
 .flip-cards div {
@@ -54,7 +54,7 @@ body {
 }
 
 .rotate {
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -70,7 +70,7 @@ body {
 }
 
 .reverse-card {
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
   vertical-align: middle;
   padding-top: 200px;
   font: black;
@@ -91,12 +91,12 @@ p {
   top: 5px;
   border: 1px solid #FF8533;
   border-radius: 50%;
-  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
   margin: 5px;
 }
 
 .close-icon:hover {
-  transform:scale(1.25);
+  -webkit-transform:scale(1.25);
   border-color: white;
 }
 
@@ -141,7 +141,7 @@ iframe {
 
 .show-div {
   left: 5% ;
-  transition: opacity 2s;
+  -webkit-transition: opacity 2s;
   opacity: 1;
 }
 

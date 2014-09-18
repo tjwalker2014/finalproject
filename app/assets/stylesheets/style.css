@@ -212,4 +212,7 @@ iframe {
     color: white;
     margin: 0 auto;
   }
+  .content-div-styling {
+    padding-left: 2vh;
+  }
 }

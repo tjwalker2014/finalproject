@@ -1,7 +1,8 @@
 module ApplicationHelper
   def favourite_button(function_name)
     if current_user
-      raw("<button ng-click='#{function_name}'>Favourite this!</button>")
+      #raw("<button ng-click='#{function_name}'>Favourite this!</button>")
+      raw("<i class='fa fa-thumbs-o-up fa-lg' ng-click='#{function_name}'></i>")
     end
   end
 

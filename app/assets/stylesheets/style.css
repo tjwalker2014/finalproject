@@ -138,14 +138,13 @@ iframe {
 }
 
 .content-div-styling {
-  padding-top: 5vh;
-  padding-left: 10vh;
+  padding: 5vh 5vw;
   position: absolute;
   background: #FF8533;
   height: 90%;
   width: 90%;
   top: 10%;
-  left: -100% ;
+  left: -100%;
   z-index: 1000000;
   opacity: 0;
   font-size: 25px;
@@ -165,24 +164,20 @@ iframe {
 
 .heading {
   font-weight: 400;
+  font-size: 30px;
 }
 
 .linkpara:hover {
+  transition: all .5s;
+  transform: scale(1.1);
+  -webkit-transform-origin-x: 0;
   cursor: pointer;
 }
 
-.favbutton {
-  border: 2px solid white;
-  border-radius: 5px;
-  width: 25%;
-  padding: 5px;
-  display: none;
-}
-
-.favbutton:hover {
+.fa:hover {
   transition: all .2s;
-  -webkit-transform:scale(0.95);
-  transform:scale(0.95);
+  -webkit-transform:scale(1.5);
+  transform:scale(1.5);
   cursor: pointer;
 }
 

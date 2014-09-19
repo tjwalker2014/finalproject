@@ -67,10 +67,9 @@
     </div>  
   </div> 
 
-<%# test_id = 'ZzEJQqw8HC0' %>
   <div id="video-content-div" class="content-div-styling">
     <div id="youtube-div"></div>
-    <button ng-click="nextVideo()">next</button>
+    <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextVideo()"></i>
     <%= favourite_button('favouriteThisVideo()') %>
   </div>
   
@@ -84,18 +83,18 @@
   <div id="song-content-div" class="content-div-styling">
     <div id="soundcloud-div"></div>
     <div>
-      <button ng-click="nextTrack()">next</button>
+      <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextTrack()"></i>
       <%= favourite_button('favouriteThisTrack()') %>
     </div>
-    <div class="favbutton">Favourite this</div>
   </div>
+
 
   <div id="joke-content-div" class="content-div-styling"></div>
 
   <div id="center-content-div" class="content-div-styling">
-    <span>User Info & Settings</span><br>
-    <p class="notice"><%= notice %></p><br>
-    <p class="alert"><%= alert %></p><br>
+    <span class="heading">User Info & Settings</span><br>
+   <!--  <p class="notice"><%= notice %></p><br>
+    <p class="alert"><%= alert %></p><br> -->
 
     <% if user_signed_in? %>
       <%= current_user.email %><br>
@@ -124,7 +123,7 @@
         <% end %>  
       <br>
 
-      <p class="heading">Dashboard:</p><br>
+      <p class="heading">Dashboard Most Popular:</p><br>
         <% @zippedtopfive.each do |content| %>
           <%= paragraph_link(content) %>
         <% end %>

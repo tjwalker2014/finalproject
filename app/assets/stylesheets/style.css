@@ -113,7 +113,7 @@ p {
 
 iframe {
   padding: 0;
-  width: 80%;
+  width: 100%;
 }
 
 .ninediv {
@@ -163,7 +163,7 @@ iframe {
 }
 
 .heading {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 30px;
 }
 
@@ -176,9 +176,23 @@ iframe {
 
 .fa:hover {
   transition: all .2s;
-  -webkit-transform:scale(1.5);
-  transform:scale(1.5);
+  -webkit-transform:scale(1.15);
+  transform:scale(1.15);
   cursor: pointer;
+}
+
+#soundcloud-div {
+  margin-bottom: 10px;
+}
+
+#thought-div {
+  padding-top: 100px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#youtube-div {
+  margin-bottom: 10px;
 }
 
 /* Custom, iPhone Retina */ 
@@ -200,7 +214,7 @@ iframe {
     display: none;
   }
   .front-card {
-    line-height: 2.5;
+    line-height: 2;
   }
   .fronticon {
     display: inline-block;

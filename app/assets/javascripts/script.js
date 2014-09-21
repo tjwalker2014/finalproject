@@ -88,8 +88,6 @@ $(document).ready(function(){
         });
       }
 
-      
-      
       $scope.playTrack = function() {     
         widget.play();
       }         
@@ -112,8 +110,7 @@ $(document).ready(function(){
     });
 
     $scope.selectedTrackEmbed = function(track_url) {
-      console.log(track_url)
-      // binding.pry    
+      console.log(track_url)    
       SC.oEmbed(track_url, { auto_play: true, show_comments: false, width: "100%" }, function(oembed){
         $('#soundcloud-div').empty();
         $('#soundcloud-div').append(oembed['html']);
@@ -137,13 +134,12 @@ $(document).ready(function(){
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.quote_author, title: $scope.quote_title, url: $scope.quote_url, type: "Thought"}})
     }
 
-    $scope.selectedThoughtEmbed = function(data) {
-      console.log(data)    
+    $scope.selectedThoughtEmbed = function(quote, author) {
+    console.log(quote, author)    
       $('#thought-div').empty();
-      $('#thought-div').append(data);
+      $('#thought-div').append('<p>'+'\" '+quote+' \"'+'</p>'+'<br>'+'<p>'+author+'</p');
     }
 
-   
     $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(videos) {
       $scope.random = Math.floor(Math.random() * 49);
       $scope.video = videos.items[$scope.random]
@@ -172,10 +168,9 @@ $(document).ready(function(){
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}})
     }
 
-    $scope.selectedVideoEmbed = function(data) {
-      console.log(data)    
-      // $('#youtube-div').empty();
-      // $('#youtube-div').append('<iframe width="640" height="390" src="//www.youtube.com/embed/'+$scope.video_url+'?rel=0" frameborder="0" allowfullscreen></iframe>');
+    $scope.selectedVideoEmbed = function(video_id) {    
+      $('#youtube-div').empty();
+      $('#youtube-div').append('<iframe width="640" height="390" src="//www.youtube.com/embed/'+video_id+'?rel=0" frameborder="0" allowfullscreen></iframe>');
     }
 
   }]);

@@ -126,8 +126,8 @@ $(document).ready(function(){
       $scope.quote_author = quotedata.quote.author
       $scope.quote_title = quotedata.quote.body
       $scope.quote_url = quotedata.quote.url 
-      $('#thought-div').empty();
-      $('#thought-div').append($scope.quote_title); 
+      $('#thought-div').empty(); 
+      $('#thought-div').append('<p>'+'\" '+$scope.quote_title+' \"'+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p');
     });
 
     $scope.favouriteThisThought = function () {

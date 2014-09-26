@@ -127,7 +127,7 @@ $(document).ready(function(){
       $scope.quote_title = quotedata.quote.body
       $scope.quote_url = quotedata.quote.url 
       $('#thought-div').empty(); 
-      $('#thought-div').append('<p>'+'\" '+$scope.quote_title+' \"'+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p');
+      $('#thought-div').append('<p>'+'\" '+$scope.quote_title+' \"'+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p>');
     });
 
     $scope.favouriteThisThought = function () {
@@ -167,6 +167,16 @@ $(document).ready(function(){
     $scope.favouriteThisVideo = function () {
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}})
     }
+
+    // $scope.favouriteThisVideo = function () {
+    //   $http.post(
+    //     '/contents.json',
+    //     {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}},
+    //     function() {
+    //       $()
+    //     }
+    //   )
+    // }
 
     $scope.selectedVideoEmbed = function(video_id) {    
       $('#youtube-div').empty();

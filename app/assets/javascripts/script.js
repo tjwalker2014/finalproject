@@ -49,6 +49,25 @@ $(document).ready(function(){
   var app = angular.module('finalAppApi', []);
 
   app.controller('appController' , ["$scope", "$http" ,function($scope, $http) {
+
+    hello.on('auth.login', function(auth){
+  
+      // call user information, for the given network
+      hello( auth.network ).api( '/me' ).then( function(r){
+      // Inject it into the container
+        var label = document.getElementById( "profile_"+ auth.network );
+        if(!label){
+          label = document.createElement('div');
+          label.id = "profile_"+auth.network;
+          document.getElementById('profile').appendChild(label);
+        }
+        label.innerHTML = '<img src="'+ r.thumbnail +'" /> Hey '+r.name;
+      });
+    });
+
+    hello.init({ 
+      google : '683586944572-cnol89f6msh0en2b416auj6d3sh7imu3.apps.googleusercontent.com'
+    },{redirect_uri:'http://localhost:3000'});
         
     $.ajax({
       url: '/',
@@ -127,7 +146,7 @@ $(document).ready(function(){
       $scope.quote_title = quotedata.quote.body
       $scope.quote_url = quotedata.quote.url 
       $('#thought-div').empty(); 
-      $('#thought-div').append('<p>'+'\" '+$scope.quote_title+' \"'+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p>');
+      $('#thought-div').append('<p>'+$scope.quote_title+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p>');
     });
 
     $scope.favouriteThisThought = function () {
@@ -137,7 +156,7 @@ $(document).ready(function(){
     $scope.selectedThoughtEmbed = function(quote, author) {
     console.log(quote, author)    
       $('#thought-div').empty();
-      $('#thought-div').append('<p>'+'\" '+quote+' \"'+'</p>'+'<br>'+'<p>'+author+'</p');
+      $('#thought-div').append('<p>'+quote+'</p>'+'<br>'+'<p>'+author+'</p');
     }
 
     $http.get('https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLrEnWoR732-BHrPp_Pm8_VleD68f9s14-&key=AIzaSyDQmmKpH46uJCcpUMHUsYs_X6hWyboLZck').success(function(videos) {

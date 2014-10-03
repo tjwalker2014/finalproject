@@ -51,7 +51,13 @@ $(document).ready(function(){
   var app = angular.module('finalAppApi', []);
 
   app.controller('appController' , ["$scope", "$http" ,function($scope, $http) {
-      
+    
+    // Event listener for submit of form with certain id
+    // Prevent default
+    // Post form data to url of form action
+    // Get data back
+    // Check if someone is logged in
+
     $.ajax({
       url: '/',
       dataType: 'json',

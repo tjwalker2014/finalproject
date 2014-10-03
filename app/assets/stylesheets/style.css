@@ -4,27 +4,25 @@
   font-weight: 100;
 }
 
-/*body {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  margin: 0 auto;
-  position: relative;
-}*/
-
 .front-card {
-  line-height: 33vh;
   -webkit-transition-property: all;
   -webkit-transition-duration: .2s;
   transition-property: all;
   transition-duration: .2s;
+  display: table;
+  font-size: 2.5em;
 }
 
 .front-card:hover {
   opacity: 0.5;
-  font-size: 52px;
   z-index: 100;
   -webkit-transform:scale(0.95);
   transform:scale(0.95);
+}
+
+span {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /* 3D css*/
@@ -32,11 +30,24 @@
 .flip-container {
   -webkit-perspective: 1000px;
   perspective: 1000px;
-  margin: 0 auto;
+  width: 100vw; 
   height: 100vh;
-  width: 56vw;
-  position: relative;
-  overflow: hidden;
+  max-height: 100vw;
+  max-width: 100vh;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-between;
+  align_items: center;
+  /*align-content: center;*/
+  /*overflow: auto;*/ /* Recommended in case content is larger than the container */
+  /*margin: auto;*/ /* Center the item vertically & horizontally */
+  /*position: absolute;*/ /* Break it out of the regular flow */
+  /*top: 0; left: 0; bottom: 0; right: 0;*/ /* Set the bounds in which to center it, relative to its parent/container */
 }
 
 .flip-cards {
@@ -54,19 +65,22 @@
   height: 100%;
   background: #FF8533;
   vertical-align: middle;
-  font-size: 50px;
+  /*font-size: 50px;*/
   color: white;
   position: absolute;
-  border-radius: 10px;    
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.flip-cards .rounded {
+  border-radius: 10px;    
 }
 
 .rotate {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   z-index: 1;
@@ -74,37 +88,38 @@
 }
 
 .holder {
-  width: 32.95%;
-  height: 33vh;
-  display: inline-block;
+  width: 33%;
+  height: 33%;
+  margin: 0.1%;
 }
 
 .reverse-card {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
   vertical-align: middle;
-  padding-top: 200px;
   font: black;
   z-index: 2;
 }
 
 p {
-  font-size: 20px;
+  /*font-size: 20px;*/
   padding: 0;
   margin: 0;
   line-height: 1;
 }
 
 .close-icon {
-  width: 50px;
+  float: right;
+  width: 3em;
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 1%;
+  top: 1%;
   border: 1px solid #FF8533;
   border-radius: 50%;
   -webkit-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-  margin: 5px;
+  margin: 1%;
+  z-index: 10000;
 }
 
 .close-icon:hover {
@@ -119,7 +134,7 @@ iframe {
 }
 
 .ninediv {
-  font-size: 80px;
+  /*font-size: 80px;*/
   font-weight: 400;
 }
 
@@ -128,7 +143,7 @@ iframe {
 }
 
 #jokediv, #centerdiv, #storydiv {
-  margin: 3px 0 3px 0;
+/*  margin: 3px 0 3px 0;*/
 }
 
 #soundcloud {
@@ -147,7 +162,7 @@ iframe {
   width: 90%;
   top: 10%;
   left: -100%;
-  z-index: 1000000;
+  z-index: 2;
   opacity: 0;
   font-size: 25px;
   color: white;
@@ -166,7 +181,7 @@ iframe {
 
 .heading {
   font-weight: 300;
-  font-size: 30px;
+ /* font-size: 30px;*/
 }
 
 .linkpara:hover {
@@ -184,43 +199,32 @@ iframe {
 }
 
 #soundcloud-div {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 #thought-div {
-  padding-top: 100px;
+  /*padding-top: 100px;*/
   text-align: center;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 #youtube-div {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
 }
 
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 370px) {
-  body {
-    width: 100%;
-  }
-  .flip-container{
-    width: 100%;
-  }
+@media only screen and (max-width : 500px) {
+  
   .squaretext {
     display: none;
   }
-  .holder {
-    width: 32%;
-    height: 15vh;
-  }
+  
   .ninediv {
     display: none;
   }
-  .front-card {
-    line-height: 2;
-  }
+
   .fronticon {
     display: inline-block;
     color: white;
-    margin: 0 auto;
   }
 }

@@ -8,7 +8,9 @@ myApp.setUpEventListeners = function(){
     var $div_to_show = $($(this).data('show'));
 
     if (!$div_to_rotate.hasClass('rotate')) {
-      $div_to_rotate.addClass('rotate');
+      $div_to_rotate.addClass('rotate', function () {
+        console.log('hello')
+      });
       setTimeout(function() {$div_to_rotate.children('.reverse-card').addClass('rounded')}, 500);
       $('.front-card').addClass('avoid-clicks');
       $div_to_show.addClass('show-div');
@@ -176,20 +178,53 @@ $(document).ready(function(){
       $http.post('/contents.json', {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}})
     }
 
-    // $scope.favouriteThisVideo = function () {
-    //   $http.post(
-    //     '/contents.json',
-    //     {user_id: $scope.user.id, content: {author: $scope.video_author, title: $scope.video_title, url: $scope.video_url, type: "Video"}},
-    //     function() {
-    //       $()
-    //     }
-    //   )
-    // }
-
     $scope.selectedVideoEmbed = function(video_id) {    
       $('#youtube-div').empty();
       $('#youtube-div').append('<iframe width="640" height="390" src="//www.youtube.com/embed/'+video_id+'?rel=0" frameborder="0" allowfullscreen></iframe>');
     }
+
+    //$http.get('http://api.giphy.com/v1/gifs/search?q=minions&api_key=dc6zaTOxFJmzC').success(function(minions) {
+      // console.log(minions.data[1].id)
+      // $scope.random = Math.floor(Math.random() * 24);
+      // $scope.minion = minions.data[$scope.random]
+      // $scope.minion_title = ('randomgif')
+      // $scope.minion_url = $scope.minion.id
+
+      // $scope.minionEmbed = function() {
+      //   $('#joke-div').empty();
+      //   $('#joke-div').append('<img src="http://www.giphy.com/embed/'+$scope.minion_url'">');
+      //   // $('#joke-div').append('<p>'+$scope.minion_url+'</p>');
+      // }
+
+      //$scope.minionEmbed();
+
+      // $scope.nextVideo = function() { 
+      //   $scope.random = Math.floor(Math.random() * 24);
+      //   $scope.video = videos.items[$scope.random]
+      //   $scope.video_author = $scope.video.snippet.channelTitle
+      //   $scope.video_title = $scope.video.snippet.title
+      //   $scope.video_url = $scope.video.snippet.resourceId.videoId
+      //   $scope.youtubeEmbed();
+      // }
+    //});
+
+    $.ajax({
+      url: "http://dynamic.xkcd.com/api-0/jsonp/comic?callback=?",
+      dataType: "json",
+      jsonpCallback: "xkcddata",
+      success: function(data) {
+        // console.log(data)
+        // $("#xkcdcontent").append(
+        //   $("<h1/>").text(data.title),
+        //   $("<img/>").attr({
+        //       src: data.img,
+        //       title: data.alt,
+        //       alt: data.title
+        //   })
+        // );
+      }
+    });
+});
 
   }]);
 })();

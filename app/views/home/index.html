@@ -2,28 +2,28 @@
 
   <div class="holder">
     <div class="flip-cards" id="video">
-      <div class="front-card rounded" data-rotate="#video" data-show="#video-content-div"><span class="squaretext">Video</span><img class="fronticon" src="assets/video.png"></div>
+      <div class="front-card rounded" data-rotate="#video" data-show="#video-content-div"><span class="squaretext">Video</span><img class="fronticon center" src="assets/video.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#video" data-show="#video-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="thought">
-      <div class="front-card rounded" data-rotate="#thought" data-show="#thought-content-div"><span class="squaretext">Thought</span><img class="fronticon" src="assets/quote.png"></div>
+      <div class="front-card rounded" data-rotate="#thought" data-show="#thought-content-div"><span class="squaretext">Thought</span><img class="fronticon center" src="assets/quote.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#thought" data-show="#thought-content-div"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="song">
-      <div class="front-card rounded" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()"><span class="squaretext">Song</span><img class="fronticon" src="assets/note.png"></div>
+      <div class="front-card rounded" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()"><span class="squaretext">Song</span><img class="fronticon center" src="assets/note.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#song" data-show="#song-content-div" ng-click="pauseTrack()"></div>
     </div>
   </div>  
   
   <div class="holder" id="jokediv">
     <div class="flip-cards" id="joke">
-      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div"><span class="squaretext">Joke</span><img class="fronticon" src="assets/emoticon.png"></div>
+      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div"><span class="squaretext">Minions</span><img class="fronticon center" src="assets/emoticon.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#joke" data-show="#joke-content-div"></div>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <div class="holder" id="centerdiv">
     <div class="flip-cards" id="nine">
       <div class="front-card rounded" data-rotate="#nine" data-show="#center-content-div">
-        <span class="ninediv" class="ninediv sqrsweight">.rS</span><img class="fronticon" src="assets/home.png">  
+        <span class="ninediv" class="ninediv sqrsweight">.rS</span><img class="fronticon center" src="assets/home.png">  
       </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#nine" data-show="#center-content-div"></div>
     </div>
@@ -39,28 +39,28 @@
 
   <div class="holder" id="storydiv">
     <div class="flip-cards" id="story">
-      <div class="front-card rounded" data-rotate="#story" data-show="#story-content-div"><span class="squaretext">Story</span><img class="fronticon" src="assets/literature.png"></div>
+      <div class="front-card rounded" data-rotate="#story" data-show="#story-content-div"><span class="squaretext">Story</span><img class="fronticon center" src="assets/literature.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#story" data-show="#story-content-div"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="picture">
-      <div class="front-card rounded" data-rotate="#picture" data-show="#picture-content-div"><span class="squaretext">Picture</span><img class="fronticon"src="assets/camera.png"></div>
+      <div class="front-card rounded" data-rotate="#picture" data-show="#picture-content-div"><span class="squaretext">Picture</span><img class="fronticon center"src="assets/camera.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#picture" data-show="#picture-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="game">
-      <div class="front-card rounded" data-rotate="#game" data-show="#game-content-div"><span class="squaretext">Game</span><img class="fronticon"src="assets/dice.png"></div>
+      <div class="front-card rounded" data-rotate="#game" data-show="#game-content-div"><span class="squaretext">Game</span><img class="fronticon center"src="assets/dice.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#game" data-show="#game-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="random">
-      <div class="front-card rounded" data-rotate="#random" data-show="#random-content-div"><span class="squaretext">Random</span><img class="fronticon"src="assets/questionmark.png"></div>
+      <div class="front-card rounded" data-rotate="#random" data-show="#random-content-div"><span class="squaretext">About</span><img class="fronticon center"src="assets/questionmark.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#random" data-show="#random-content-div"></div>
     </div>  
   </div> 
@@ -88,7 +88,9 @@
     </div>
   </div>
 
-  <div id="joke-content-div" class="content-div-styling"></div>
+  <div id="joke-content-div" class="content-div-styling">
+    <div id="joke-div"><img src="/assets/minions.gif"></div>
+  </div>
 
   <div id="center-content-div" class="content-div-styling">
     <span class="heading">User Info & Settings</span><br>
@@ -137,7 +139,7 @@
     <%= link_to "Login with Google", user_omniauth_authorize_path(:google_oauth2) %>    
     <% end %>
 
-    <button onclick="hello( 'google' ).login()">google</button>
+    <!-- <button onclick="hello( 'google' ).login()">google</button> -->
   </div>
   
   <div id="story-content-div" class="content-div-styling"></div>
@@ -146,7 +148,7 @@
   
   <div id="game-content-div" class="content-div-styling"></div>
   
-  <div id="random-content-div" class="content-div-styling"></div>
+  <div id="random-content-div" class="content-div-styling">Normcore church-key disrupt mixtape, fingerstache Cosby sweater actually typewriter Pinterest YOLO Marfa paleo. Retro irony Echo Park, banh mi hella brunch blog ethical try-hard bitters farm-to-table readymade kogi. Paleo scenester sartorial Etsy, lomo bitters tousled beard put a bird on it vegan hoodie fashion axe. Lo-fi deep v flexitarian typewriter hashtag. Single-origin coffee Vice literally, Neutra Truffaut bicycle rights messenger bag. Blue Bottle flannel biodiesel XOXO, Kickstarter fap polaroid viral DIY church-key. Selfies occupy mlkshk yr next level.</div>
 
   <div id="dashboard-div" class="content-div-styling">
     <p>Most popular:</p><br>

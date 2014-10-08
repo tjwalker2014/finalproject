@@ -23,7 +23,7 @@
   
   <div class="holder" id="jokediv">
     <div class="flip-cards" id="joke">
-      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div"><span class="squaretext">Minions</span><img class="fronticon center" src="assets/emoticon.png"></div>
+      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div" ng-click="showMinions()"><span class="squaretext">Minions</span><img class="fronticon center" src="assets/emoticon.png"></div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#joke" data-show="#joke-content-div"></div>
     </div>
   </div>
@@ -69,14 +69,16 @@
     <div id="youtube-div"></div>
     <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextVideo()"></i>
     <%= favourite_button('favouriteThisVideo()') %>
-    <!--   <a class="button facebook" href="#">Facebook</a>
-    <a class="button twitter" href="#">Twitter</a> -->
+    <i class="fa fa-facebook fa-lg"></i>
+    <i class="fa fa-twitter fa-lg"></i>
   </div>
   
   <div id="thought-content-div" class="content-div-styling">
     <div id="thought-div"></div>
     <div>
       <%= favourite_button('favouriteThisThought()') %>
+      <i class="fa fa-facebook fa-lg"></i>
+      <i class="fa fa-twitter fa-lg"></i>
     </div>
   </div>
 
@@ -85,11 +87,17 @@
     <div>
       <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextTrack()"></i>
       <%= favourite_button('favouriteThisTrack()') %>
+      <i class="fa fa-facebook fa-lg"></i>
+      <i class="fa fa-twitter fa-lg"></i>
     </div>
   </div>
 
   <div id="joke-content-div" class="content-div-styling">
-    <div id="joke-div"><img src="/assets/minions.gif"></div>
+    <div id="jokewrapper">
+      <div id="joke-div"></div>
+      <i class="fa fa-facebook fa-lg"></i>
+      <i class="fa fa-twitter fa-lg"></i>
+    </div>
   </div>
 
   <div id="center-content-div" class="content-div-styling">
@@ -142,18 +150,31 @@
     <!-- <button onclick="hello( 'google' ).login()">google</button> -->
   </div>
   
-  <div id="story-content-div" class="content-div-styling"></div>
+  <div id="story-content-div" class="content-div-styling">
+    <i class="fa fa-facebook fa-lg"></i>
+    <i class="fa fa-twitter fa-lg"></i>
+  </div>
   
-  <div id="picture-content-div" class="content-div-styling"></div>
+  <div id="picture-content-div" class="content-div-styling">
+    <i class="fa fa-facebook fa-lg"></i>
+    <i class="fa fa-twitter fa-lg"></i>
+  </div>
   
-  <div id="game-content-div" class="content-div-styling"></div>
+  <div id="game-content-div" class="content-div-styling">
+    <i class="fa fa-facebook fa-lg"></i>
+    <i class="fa fa-twitter fa-lg"></i>
+  </div>
   
-  <div id="random-content-div" class="content-div-styling">Normcore church-key disrupt mixtape, fingerstache Cosby sweater actually typewriter Pinterest YOLO Marfa paleo. Retro irony Echo Park, banh mi hella brunch blog ethical try-hard bitters farm-to-table readymade kogi. Paleo scenester sartorial Etsy, lomo bitters tousled beard put a bird on it vegan hoodie fashion axe. Lo-fi deep v flexitarian typewriter hashtag. Single-origin coffee Vice literally, Neutra Truffaut bicycle rights messenger bag. Blue Bottle flannel biodiesel XOXO, Kickstarter fap polaroid viral DIY church-key. Selfies occupy mlkshk yr next level.</div>
+  <div id="random-content-div" class="content-div-styling">
+    <p>Normcore church-key disrupt mixtape, fingerstache Cosby sweater actually typewriter Pinterest YOLO Marfa paleo. Retro irony Echo Park, banh mi hella brunch blog ethical try-hard bitters farm-to-table readymade kogi. Paleo scenester sartorial Etsy, lomo bitters tousled beard put a bird on it vegan hoodie fashion axe. Lo-fi deep v flexitarian typewriter hashtag. Single-origin coffee Vice literally, Neutra Truffaut bicycle rights messenger bag. Blue Bottle flannel biodiesel XOXO, Kickstarter fap polaroid viral DIY church-key. Selfies occupy mlkshk yr next level.</p>
+    <i class="fa fa-facebook fa-lg"></i>
+    <i class="fa fa-twitter fa-lg"></i>
+  </div>
 
-  <div id="dashboard-div" class="content-div-styling">
+  <!-- <div id="dashboard-div" class="content-div-styling">
     <p>Most popular:</p><br>
     <p></p>
-  </div>
+  </div> -->
 
 </div>
 

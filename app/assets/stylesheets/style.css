@@ -20,7 +20,7 @@ body {
 
 .front-card:hover {
   opacity: 0.5;
-  z-index: 100;
+  /*z-index: 100;*/
   -webkit-transform:scale(0.95);
   transform:scale(0.95);
 }
@@ -69,7 +69,6 @@ span {
   height: 100%;
   background: #FF8533;
   vertical-align: middle;
-  /*font-size: 50px;*/
   color: white;
   position: absolute;
   -webkit-backface-visibility: hidden;
@@ -90,10 +89,6 @@ span {
   z-index: 1;
   left: 0;
 /*  float: top;*/
-}
-
-.testclass {
-  font: blue;
 }
 
 .holder {
@@ -151,12 +146,8 @@ iframe {
   font-weight: 400;
 }
 
-#centerdiv, .sqrsweight{
+#centerdiv, .sqrsweight {
   font-weight: 300;
-}
-
-#jokediv, #centerdiv, #storydiv {
-/*  margin: 3px 0 3px 0;*/
 }
 
 #soundcloud {
@@ -215,22 +206,21 @@ iframe {
   cursor: pointer;
 }
 
-#soundcloud-div {
-  /*margin-bottom: 10px;*/
+#soundcloud-div, #thought-div, #youtube-div, .minions {
+  margin-bottom: 5%;
 }
 
 #thought-div {
-  /*padding-top: 100px;*/
   text-align: center;
-  /*margin-bottom: 10px;*/
 }
 
-#youtube-div {
-  /*margin-bottom: 10px;*/
+.minions {
+  display: block;
+  width: 100%;
 }
 
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 500px) {
+@media only screen and (max-width : 400px) {
   
   .squaretext {
     display: none;
@@ -243,5 +233,15 @@ iframe {
   .fronticon {
     display: inline-block;
     color: white;
+  }
+
+  .rotate {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    top: -50%;
+  }
+
+  .content-div-styling {
+    top: -25%;
   }
 }

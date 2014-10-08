@@ -137,7 +137,7 @@ $(document).ready(function(){
       $scope.quote_title = quotedata.quote.body
       $scope.quote_url = quotedata.quote.url 
       $('#thought-div').empty(); 
-      $('#thought-div').append('<p>'+$scope.quote_title+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p>');
+      $('#thought-div').append('<p>'+'\" '+$scope.quote_title+' \"'+'</p>'+'<br>'+'<p>'+$scope.quote_author+'</p>');
     });
 
     $scope.favouriteThisThought = function () {
@@ -208,23 +208,28 @@ $(document).ready(function(){
       // }
     //});
 
-    $.ajax({
-      url: "http://dynamic.xkcd.com/api-0/jsonp/comic?callback=?",
-      dataType: "json",
-      jsonpCallback: "xkcddata",
-      success: function(data) {
-        // console.log(data)
-        // $("#xkcdcontent").append(
-        //   $("<h1/>").text(data.title),
-        //   $("<img/>").attr({
-        //       src: data.img,
-        //       title: data.alt,
-        //       alt: data.title
-        //   })
-        // );
-      }
-    });
-});
+    // $.ajax({
+    //   url: "http://dynamic.xkcd.com/api-0/jsonp/comic?callback=?",
+    //   dataType: "json",
+    //   jsonpCallback: "xkcddata",
+    //   success: function(data) {
+    //     // console.log(data)
+    //     // $("#xkcdcontent").append(
+    //     //   $("<h1/>").text(data.title),
+    //     //   $("<img/>").attr({
+    //     //       src: data.img,
+    //     //       title: data.alt,
+    //     //       alt: data.title
+    //     //   })
+    //     // );
+    //   }
+    // });
+// });
+
+  $scope.showMinions = function() {
+    $('#joke-div').empty();
+    $('#joke-div').append('<img class="minions" src="/assets/minions.gif">');
+  }
 
   }]);
 })();

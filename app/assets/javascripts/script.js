@@ -224,8 +224,6 @@ $(document).ready(function(){
         // );
       }
     });
-});
-
   }]);
 })();
 

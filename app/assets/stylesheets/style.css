@@ -48,7 +48,7 @@ body {
 }
 
 .front-card:hover {
-  opacity: 0.5;
+  /*opacity: 0.5;*/
   /*z-index: 100;*/
   -webkit-transform:scale(0.95);
   transform:scale(0.95);
@@ -70,19 +70,27 @@ i {
   position: relative;
 }
 
+.contenticons:hover {
+  transition: all 0.2s;
+  -webkit-transform:scale(1.15);
+  transform:scale(1.15);
+  cursor: pointer;
+}
+
 .rslogo {
   font-size: 2em;
 }
 
 .fronticon {
   font-size: 2em;
+  line-height: 0.55em;
 }
 
 .togglevisibility {
   opacity: 0; 
 }
 
-.about {
+.fillertext {
   padding-bottom: 5%;
   text-align: justify;
 }
@@ -139,9 +147,9 @@ i {
 
 .holder {
   float: left;
-  width: 33%;
-  height: 33%;
-  margin: 0.1%;
+  width: 32.5%;
+  height: 32.5%;
+  margin: 0.3%;
 }
 
 .reverse-card {

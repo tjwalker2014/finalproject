@@ -2,28 +2,36 @@
 
   <div class="holder">
     <div class="flip-cards" id="video">
-      <div class="front-card rounded" data-rotate="#video" data-show="#video-content-div"><span class="squaretext">Video</span><img class="fronticon center" src="assets/video.png"></div>
+      <div class="front-card rounded" data-rotate="#video" data-show="#video-content-div">
+        <span><p class="togglevisibility">Video</p><i class="fa fa-play-circle fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#video" data-show="#video-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="thought">
-      <div class="front-card rounded" data-rotate="#thought" data-show="#thought-content-div"><span class="squaretext">Thought</span><img class="fronticon center" src="assets/quote.png"></div>
+      <div class="front-card rounded" data-rotate="#thought" data-show="#thought-content-div">
+        <span><p class="togglevisibility">Quote</p><i class="fa fa-comment fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#thought" data-show="#thought-content-div"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="song">
-      <div class="front-card rounded" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()"><span class="squaretext">Song</span><img class="fronticon center" src="assets/note.png"></div>
+      <div class="front-card rounded" data-rotate="#song" data-show="#song-content-div" ng-click="playTrack()">
+        <span><p class="togglevisibility">Song</p><i class="fa fa-music fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#song" data-show="#song-content-div" ng-click="pauseTrack()"></div>
     </div>
   </div>  
   
   <div class="holder" id="jokediv">
     <div class="flip-cards" id="joke">
-      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div" ng-click="showMinions()"><span class="squaretext">Minions</span><img class="fronticon center" src="assets/emoticon.png"></div>
+      <div class="front-card rounded" data-rotate="#joke" data-show="#joke-content-div" ng-click="showMinions()">
+        <span><p class="togglevisibility">Minions</p><i class="fa fa-smile-o fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#joke" data-show="#joke-content-div"></div>
     </div>
   </div>
@@ -32,7 +40,7 @@
     <div class="flip-cards" id="nine">
       <div class="front-card rounded" data-rotate="#nine" data-show="#center-content-div">
         <div class="borderdiv"> 
-          <span class="ninediv" class="ninediv sqrsweight">.rS</span><img class="fronticon center" src="assets/home.png">  
+          <span class="rslogo">.rS</span>  
         </div>
       </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#nine" data-show="#center-content-div"></div>
@@ -41,64 +49,72 @@
 
   <div class="holder" id="storydiv">
     <div class="flip-cards" id="story">
-      <div class="front-card rounded" data-rotate="#story" data-show="#story-content-div"><span class="squaretext">Story</span><img class="fronticon center" src="assets/literature.png"></div>
+      <div class="front-card rounded" data-rotate="#story" data-show="#story-content-div">
+        <span><p class="togglevisibility">News</p><i class="fa fa-newspaper-o fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#story" data-show="#story-content-div"></div>
     </div>
   </div>  
 
   <div class="holder">
     <div class="flip-cards" id="picture">
-      <div class="front-card rounded" data-rotate="#picture" data-show="#picture-content-div"><span class="squaretext">Picture</span><img class="fronticon center"src="assets/camera.png"></div>
+      <div class="front-card rounded" data-rotate="#picture" data-show="#picture-content-div">
+        <span><p class="togglevisibility">Picture</p><i class="fa fa-camera fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#picture" data-show="#picture-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="game">
-      <div class="front-card rounded" data-rotate="#game" data-show="#game-content-div"><span class="squaretext">Game</span><img class="fronticon center"src="assets/dice.png"></div>
+      <div class="front-card rounded" data-rotate="#game" data-show="#game-content-div">
+        <span><p class="togglevisibility">Game</p><i class="fa fa-gamepad fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#game" data-show="#game-content-div"></div>
     </div>
   </div>
 
   <div class="holder">
     <div class="flip-cards" id="random">
-      <div class="front-card rounded" data-rotate="#random" data-show="#random-content-div"><span class="squaretext">About</span><img class="fronticon center"src="assets/questionmark.png"></div>
+      <div class="front-card rounded" data-rotate="#random" data-show="#random-content-div">
+        <span><p class="togglevisibility">About</p><i class="fa fa-info-circle fa-lg fronticon"></i></span>
+      </div>
       <div class="reverse-card"><img class="close-icon" src="assets/close3.png" data-rotate="#random" data-show="#random-content-div"></div>
     </div>  
   </div> 
 
   <div id="video-content-div" class="content-div-styling">
     <div id="youtube-div"></div>
-    <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextVideo()"></i>
+    <i class="fa fa-chevron-circle-right fa-lg contenticons" ng-click="nextVideo()"></i>
     <%= favourite_button('favouriteThisVideo()') %>
-    <i class="fa fa-facebook fa-lg"></i>
-    <i class="fa fa-twitter fa-lg"></i>
+    <i class="fa fa-facebook fa-lg contenticons"></i>
+    <i class="fa fa-twitter fa-lg contenticons"></i>
   </div>
   
   <div id="thought-content-div" class="content-div-styling">
     <div id="thought-div"></div>
     <div>
       <%= favourite_button('favouriteThisThought()') %>
-      <i class="fa fa-facebook fa-lg"></i>
-      <i class="fa fa-twitter fa-lg"></i>
+      <i class="fa fa-facebook fa-lg contenticons"></i>
+      <i class="fa fa-twitter fa-lg contenticons"></i>
     </div>
   </div>
 
   <div id="song-content-div" class="content-div-styling">
     <div id="soundcloud-div"></div>
     <div>
-      <i class="fa fa-chevron-circle-right fa-lg" ng-click="nextTrack()"></i>
+      <i class="fa fa-chevron-circle-right fa-lg contenticons" ng-click="nextTrack()"></i>
       <%= favourite_button('favouriteThisTrack()') %>
-      <i class="fa fa-facebook fa-lg"></i>
-      <i class="fa fa-twitter fa-lg"></i>
+      <i class="fa fa-facebook fa-lg contenticons"></i>
+      <i class="fa fa-twitter fa-lg contenticons"></i>
     </div>
   </div>
 
   <div id="joke-content-div" class="content-div-styling">
     <div id="jokewrapper">
       <div id="joke-div"></div>
-      <i class="fa fa-facebook fa-lg"></i>
-      <i class="fa fa-twitter fa-lg"></i>
+      <i class="fa fa-facebook fa-lg contenticons"></i>
+      <i class="fa fa-twitter fa-lg contenticons"></i>
     </div>
   </div>
 
@@ -153,24 +169,27 @@
   </div>
   
   <div id="story-content-div" class="content-div-styling">
-    <i class="fa fa-facebook fa-lg"></i>
-    <i class="fa fa-twitter fa-lg"></i>
+    <i class="fa fa-facebook fa-lg contenticons"></i>
+    <i class="fa fa-twitter fa-lg contenticons"></i>
   </div>
   
   <div id="picture-content-div" class="content-div-styling">
-    <i class="fa fa-facebook fa-lg"></i>
-    <i class="fa fa-twitter fa-lg"></i>
+    <i class="fa fa-facebook fa-lg contenticons"></i>
+    <i class="fa fa-twitter fa-lg contenticons"></i>
   </div>
   
   <div id="game-content-div" class="content-div-styling">
-    <i class="fa fa-facebook fa-lg"></i>
-    <i class="fa fa-twitter fa-lg"></i>
+    <i class="fa fa-facebook fa-lg contenticons"></i>
+    <i class="fa fa-twitter fa-lg contenticons"></i>
   </div>
   
   <div id="random-content-div" class="content-div-styling">
-    <p>Normcore church-key disrupt mixtape, fingerstache Cosby sweater actually typewriter Pinterest YOLO Marfa paleo. Retro irony Echo Park, banh mi hella brunch blog ethical try-hard bitters farm-to-table readymade kogi. Paleo scenester sartorial Etsy, lomo bitters tousled beard put a bird on it vegan hoodie fashion axe. Lo-fi deep v flexitarian typewriter hashtag. Single-origin coffee Vice literally, Neutra Truffaut bicycle rights messenger bag. Blue Bottle flannel biodiesel XOXO, Kickstarter fap polaroid viral DIY church-key. Selfies occupy mlkshk yr next level.</p>
-    <i class="fa fa-facebook fa-lg"></i>
-    <i class="fa fa-twitter fa-lg"></i>
+    <p class="about">
+      Hi there. Welcome to my app. I built this as my final project while I was studying the Web Development Immersive course at General Assembly. I thought it would be fun to build a web app that people could use while waiting for a flight or train, etc. or just for general amusement. It's designed around eight squares, each of which spins round and fetches random content from a different api, depending on which square the user clicks on. Well, that's idea anyway. A multipurpose, central ninth square serves as a login/user profile page and trending dashboard. I built this using Ruby on Rails, JQuery, lots of CSS animation and a bit of AngularJS.<br><br>
+
+      I'm still playing around with APIs, design, Javascript and tidying it all up, so it's still very much a work in progress. At the moment you can sign up and save stuff to your profile. Eventually you'll also be able to share content you like to facebook and twitter. Fun times.<br><br>
+
+      It was originally, and rather unimaginatively, called “9 squares”, but I renamed it “.rS” for “random stuff” or something along those lines…</p>
   </div>
 
   <!-- <div id="dashboard-div" class="content-div-styling">

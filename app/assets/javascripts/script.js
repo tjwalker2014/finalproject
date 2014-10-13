@@ -42,6 +42,34 @@ myApp.setUpEventListeners = function(){
     $('.front-card').removeClass('avoid-clicks');
     $div_to_show.removeClass('show-div'); 
   });
+
+  // $(".holder").hover(function () {
+  //   $hoveredholder = $(this);
+  //   $holdericon = $hoveredholder.find('i')
+  //   $holdericon.addClass('hide'); 
+  //   },
+  //   function () {
+  //     $holdericon.toggleClass('hide');
+  //   });
+
+  // $("#video").hover(function() {
+  //   $(this).find('.front-card').empty().append('<p>sometext</p>');
+  // },
+  //   function() {
+  //   $(this).find('.front-card').empty().append('<p>someothertext</p>');
+  // });
+  
+  $(".holder").hover(function () {
+    $hoveredholder = $(this);
+    $holdericon = $hoveredholder.find('.fa');
+    $holdertext = $hoveredholder.find('p');
+    $holdericon.toggleClass('togglevisibility');
+    $holdertext.toggleClass('togglevisibility'); 
+    },
+    function () {
+      $holdericon.toggleClass('togglevisibility');
+      $holdertext.toggleClass('togglevisibility');
+    });
 };
 
 $(document).ready(function(){

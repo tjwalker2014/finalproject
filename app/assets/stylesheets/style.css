@@ -15,11 +15,16 @@ body {
   width: 90%;
   height: 90%;
   /*border: 5px solid white;*/
-  border-radius: 10px;
+  border-radius: 15px;
   margin: auto; /* Center the item vertically & horizontally */
   position: absolute; /* Break it out of the regular flow */
   top: 0; left: 0; bottom: 0; right: 0; /* Set the bounds in which to center it, relative to its parent/container */
-  color: #FF8533;
+  color: #FF7314;
+}
+
+.borderdiv span {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .front-card {
@@ -27,12 +32,14 @@ body {
   -webkit-transition-duration: .2s;
   transition-property: all;
   transition-duration: .2s;
-  display: table;
+  /*display: table;*/
   font-size: 2.5em;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  background: #FF8533;
+  background: #FF7314;
   /*vertical-align: middle;*/
   color: white;
   /*position: absolute;*/
@@ -48,8 +55,36 @@ body {
 }
 
 span {
-  display: table-cell;
-  vertical-align: middle;
+  margin: auto; /* Center the item vertically & horizontally */
+  position: relative; /* Break it out of the regular flow */
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+i {
+  margin: auto; /* Center the item vertically & horizontally */
+  position: absolute; /* Break it out of the regular flow */
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.contenticons {
+  position: relative;
+}
+
+.rslogo {
+  font-size: 2em;
+}
+
+.fronticon {
+  font-size: 2em;
+}
+
+.togglevisibility {
+  opacity: 0; 
+}
+
+.about {
+  padding-bottom: 5%;
+  text-align: justify;
 }
 
 /* 3D css*/
@@ -87,7 +122,7 @@ span {
 }
 
 .flip-cards .rounded {
-  border-radius: 10px;    
+  border-radius: 15px;    
 }
 
 .rotate {
@@ -116,7 +151,6 @@ span {
   z-index: 2;
   position: absolute;
   top: 0;
-
   width: 100%;
   height: 100%;
   background: #FF8533;
@@ -197,10 +231,6 @@ iframe {
   opacity: 1;
 }
 
-.fronticon {
-  display: none;
-}
-
 .center {
   margin: 30%;
 }
@@ -218,10 +248,10 @@ iframe {
 }
 
 .fa:hover {
-  transition: all .2s;
-  -webkit-transform:scale(1.15);
-  transform:scale(1.15);
-  cursor: pointer;
+  /*transition: all .2s;*/
+  /*-webkit-transform:scale(1.15);
+  transform:scale(1.15);*/
+  /*cursor: pointer;*/
 }
 
 #soundcloud-div, #thought-div, #youtube-div, .minions {
@@ -248,10 +278,10 @@ iframe {
     display: none;
   }
 
-  .fronticon {
+ /* .fronticon {
     display: inline-block;
     color: white;
-  }
+  }*/
 
   .rotate {
     -webkit-transform: rotateY(180deg);
